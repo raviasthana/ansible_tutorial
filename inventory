@@ -1,0 +1,9 @@
+[web_servers]
+ansible@35.246.90.152
+ansible@35.234.139.122
+
+[db_servers]
+ansible@35.230.133.91
+
+[file_servers]
+ansible@35.242.138.102
