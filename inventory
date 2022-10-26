@@ -7,3 +7,6 @@ ansible@35.230.133.91
 
 [file_servers]
 ansible@35.242.138.102
+
+[workstations]
+ansible@35.246.84.134
