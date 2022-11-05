@@ -1,0 +1,27 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+  - name: read properties file
+    set_fact:
+      props: "{{ lookup('template', 'files/props.yml')|from_yaml }}"
+
+  #- name: log properties
+  #  debug: 
+  #    msg:
+  #      - "{{ props.prop1 }}"
+  #      - "{{ props.prop2 }}"
+  #      - "{{ props.prop3 }}"
+        
+  #- name: log properties 2
+  #  include_tasks: validate_hcv_values.yml
+  #  with_dict: "{{ props }}"
+
+  - name: log properties 3
+    fail: msg="HCV key '{{ item.key }}' is not defined or empty"
+    when: (item.value is undefined) or (item.value|length == 0)
+    with_dict: "{{ props }}"
+    no_log: true
+
+

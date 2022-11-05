@@ -1,0 +1,4 @@
+---
+- fail: msg="HCV key '{{ item.key }}' is not defined or empty"
+  when: (item.value is undefined) or (item.value|length == 0)
+  #when: ("{{ item.value }}" is undefined) or ("{{ item.value }}"|length == 0)
